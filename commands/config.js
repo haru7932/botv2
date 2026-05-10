@@ -179,17 +179,17 @@ module.exports = {
       const licenca = db.getLicense(guild.id);
       const embed = new EmbedBuilder()
         .setColor(CORES.INFO)
-        .setTitle("⚙️ Configurações — " + guild.name)
+        .setTitle("Configurações — " + guild.name)
         .setThumbnail(guild.iconURL({ dynamic: true }))
         .addFields(
-          { name: "🔑 Chave Pix", value: g.pix?.chave ? "```" + g.pix.chave.substring(0,40) + "...```" : "Não configurado", inline: false },
-          { name: "👤 Nome Recebedor", value: g.pix?.nome || "Não configurado", inline: true },
-          { name: "🖼️ QR Code", value: g.pix?.qrcode ? "✅ Configurado" : "❌ Não configurado", inline: true },
-          { name: "📋 Canal de Logs", value: g.logs?.channelId ? "<#" + g.logs.channelId + ">" : "Não configurado", inline: true },
-          { name: "🎨 Cor", value: g.config?.cor || "0x2b2d31", inline: true },
-          { name: "🏷️ Nome Org.", value: g.config?.nome || guild.name, inline: true },
-          { name: "🖼️ Logo", value: g.config?.logo ? "✅ Personalizada" : "Ícone do servidor", inline: true },
-          { name: "🔐 Licença", value: licenca ? "✅ Ativa" + (licenca.expiry ? " até " + new Date(licenca.expiry).toLocaleDateString("pt-BR") : " (permanente)") : "❌ Sem licença", inline: false }
+          { name: "Chave Pix", value: g.pix?.chave ? "```" + g.pix.chave.substring(0,40) + "...```" : "Não configurado", inline: false },
+          { name: "Nome Recebedor", value: g.pix?.nome || "Não configurado", inline: true },
+          { name: "QR Code", value: g.pix?.qrcode ? "✅ Configurado" : "❌ Não configurado", inline: true },
+          { name: "Canal de Logs", value: g.logs?.channelId ? "<#" + g.logs.channelId + ">" : "Não configurado", inline: true },
+          { name: "Cor", value: g.config?.cor || "0x2b2d31", inline: true },
+          { name: "Nome Da Org.", value: g.config?.nome || guild.name, inline: true },
+          { name: "Logo", value: g.config?.logo ? "✅ Personalizada" : "Ícone do servidor", inline: true },
+          { name: "Licença", value: licenca ? "✅ Ativa" + (licenca.expiry ? " até " + new Date(licenca.expiry).toLocaleDateString("pt-BR") : " (permanente)") : "❌ Sem licença", inline: false }
         )
         .setTimestamp();
       await interaction.reply({ embeds: [embed], ephemeral: true });
