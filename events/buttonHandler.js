@@ -29,7 +29,7 @@ async function criarCanalPartida(guild, client, p1, p2, modo, valor, tipo) {
 
     const embed = new EmbedBuilder()
       .setColor(getCor(guild.id))
-      .setTitle("⚔️ Partida Encontrada!")
+      .setTitle("Partida Encontrada!")
       .setThumbnail(getThumb(guild))
       .addFields(
         { name: "Modo",      value: MODO_DISPLAY[modo] + " — " + tipo, inline: true },
@@ -47,10 +47,10 @@ async function criarCanalPartida(guild, client, p1, p2, modo, valor, tipo) {
     await canal.send({ content: "<@" + p1 + "> <@" + p2 + ">", embeds: [embed], components: [row] });
 
     const link = "<#" + canal.id + ">";
-    await enviarDM(client, p1, "⚔️ Seu adversário foi encontrado! Acesse: " + link);
-    await enviarDM(client, p2, "⚔️ Seu adversário foi encontrado! Acesse: " + link);
+    await enviarDM(client, p1, "Seu adversário foi encontrado! Acesse: " + link);
+    await enviarDM(client, p2, "Seu adversário foi encontrado! Acesse: " + link);
 
-    await enviarLog(guild, CORES.SUCESSO, "⚔️ Partida Encontrada", [
+    await enviarLog(guild, CORES.SUCESSO, "Partida Encontrada", [
       { name: "Jogadores", value: "<@" + p1 + "> vs <@" + p2 + ">", inline: false },
       { name: "Modo",      value: MODO_DISPLAY[modo], inline: true },
       { name: "Valor",     value: "R$ " + valor + ",00", inline: true },
@@ -69,13 +69,11 @@ async function enviarPix(canal, partida, guild) {
 
   const embed = new EmbedBuilder()
     .setColor(CORES.PIX)
-    .setTitle("💰 Realize o Pagamento PIX")
+    .setTitle("Realize o Pagamento PIX")
     .setDescription(
       "**Valor:** R$ " + partida.valor + ",00 cada\n\n" +
       "**Bancos aceitos:**\n" +
-      "INTER • PICPAY • MERCADO PAGO\n" +
-      "NEXT/BRADESCO • SANTANDER\n" +
-      "INFINITE PAY • RECARGAPAY • 99PAY\n\n" +
+      "Nubank\n" +
       "📎 Mande o comprovante ou o **nome do PIX + banco**\n\n" +
       "Após pagar clique no botão **Já paguei** abaixo."
     )
@@ -93,9 +91,9 @@ async function enviarPix(canal, partida, guild) {
   const rowFechar = new ActionRowBuilder().addComponents(
     new ButtonBuilder().setCustomId("fechar_" + canal.id).setLabel("Fechar Sala").setStyle(ButtonStyle.Danger).setEmoji("🔒")
   );
-  await canal.send({ content: "🔒 **Apenas ADMs** — clique para encerrar este canal.", components: [rowFechar] });
+  await canal.send({ content: "**Apenas ADMs** — clique para encerrar este canal.", components: [rowFechar] });
 
-  await enviarLog(guild, CORES.PIX, "💰 Pagamento Iniciado", [
+  await enviarLog(guild, CORES.PIX, "Pagamento Iniciado", [
     { name: "Jogadores", value: "<@" + partida.p1 + "> vs <@" + partida.p2 + ">", inline: false },
     { name: "Valor",     value: "R$ " + partida.valor + ",00", inline: true },
     { name: "Canal",     value: "<#" + canal.id + ">",         inline: true }
