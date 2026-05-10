@@ -23,13 +23,13 @@ module.exports = [
       const taxa = total > 0 ? ((s.vitorias / total) * 100).toFixed(1) : "0.0";
       const embed = new EmbedBuilder()
         .setColor(CORES.INFO)
-        .setTitle("📊 Estatísticas de " + jogador.username)
+        .setTitle("<:st:1503074346112122890> Status De" + jogador.username)
         .setThumbnail(jogador.displayAvatarURL())
         .addFields(
-          { name: "✅ Vitórias",       value: String(s.vitorias), inline: true },
-          { name: "❌ Derrotas",       value: String(s.derrotas), inline: true },
-          { name: "🎮 Total",          value: String(total),      inline: true },
-          { name: "📊 Taxa de Vitória", value: taxa + "%",         inline: true }
+          { name: "<:tro:1503075957014270132> Vitórias",       value: String(s.vitorias), inline: true },
+          { name: "<:go:1503075796049334513> Derrotas",       value: String(s.derrotas), inline: true },
+          { name: "<:pi:1503075840295043202> Total",          value: String(total),      inline: true },
+          { name: "<:st:1503074346112122890> Taxa de Vitória", value: taxa + "%",         inline: true }
         )
         .setFooter({ text: getNome(interaction.guild) })
         .setTimestamp();
@@ -47,8 +47,8 @@ module.exports = [
     async execute(interaction) {
       const jogador = interaction.options.getUser("jogador");
       getStats(jogador.id).vitorias++;
-      await interaction.reply({ content: "✅ Vitória registrada para <@" + jogador.id + ">!", ephemeral: true });
-      await enviarLog(interaction.guild, CORES.SUCESSO, "✅ Vitória Registrada", [
+      await interaction.reply({ content: "<:tro:1503075957014270132> Vitória registrada para <@" + jogador.id + ">!", ephemeral: true });
+      await enviarLog(interaction.guild, CORES.SUCESSO, "<:tro:1503075957014270132> Vitória Registrada", [
         { name: "Jogador", value: "<@" + jogador.id + ">", inline: true },
         { name: "ADM", value: "<@" + interaction.user.id + ">", inline: true }
       ]);
@@ -65,8 +65,8 @@ module.exports = [
     async execute(interaction) {
       const jogador = interaction.options.getUser("jogador");
       getStats(jogador.id).derrotas++;
-      await interaction.reply({ content: "❌ Derrota registrada para <@" + jogador.id + ">!", ephemeral: true });
-      await enviarLog(interaction.guild, CORES.ERRO, "❌ Derrota Registrada", [
+      await interaction.reply({ content: " Derrota registrada para <@" + jogador.id + ">!", ephemeral: true });
+      await enviarLog(interaction.guild, CORES.ERRO, "<:go:1503075796049334513> Derrota Registrada", [
         { name: "Jogador", value: "<@" + jogador.id + ">", inline: true },
         { name: "ADM", value: "<@" + interaction.user.id + ">", inline: true }
       ]);
@@ -133,13 +133,13 @@ module.exports = [
       const senha  = interaction.options.getString("senha");
       const embed = new EmbedBuilder()
         .setColor(getCor(interaction.guild.id))
-        .setTitle("🎮 Informações da Sala")
+        .setTitle("<:pi:1503075840295043202> Informações da Sala")
         .setThumbnail(getThumb(interaction.guild))
         .addFields(
-          { name: "⚔️ Modo",      value: MODO_DISPLAY[partida.modo] + " — " + partida.tipo, inline: true },
-          { name: "💰 Valor",     value: "R$ " + partida.valor + ",00", inline: true },
-          { name: "🆔 ID da Sala", value: "```" + salaId + "```", inline: false },
-          { name: "🔑 Senha",     value: "```" + senha + "```", inline: false }
+          { name: "Modo",      value: MODO_DISPLAY[partida.modo] + " — " + partida.tipo, inline: true },
+          { name: "Valor",     value: "R$ " + partida.valor + ",00", inline: true },
+          { name: "ID da Sala", value: "```" + salaId + "```", inline: false },
+          { name: "Senha",     value: "```" + senha + "```", inline: false }
         )
         .setFooter({ text: getNome(interaction.guild) });
 
