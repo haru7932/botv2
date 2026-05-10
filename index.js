@@ -2,8 +2,8 @@ const {
   Client, GatewayIntentBits, REST, Routes
 } = require("discord.js");
 
-const TOKEN     = process.env.DISCORD_TOKEN;MTM5MjkyMTgxMTEyMDgxNjI2MQ.GhDSO-.aW9ED19WOpHcLwS8_qfZWfluv-cdOEQ4VEKG3o
-const CLIENT_ID = process.env.DISCORD_CLIENT_ID;1392921811120816261
+const TOKEN     = process.env.DISCORD_TOKEN;
+const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 
 // ========== COMMANDS ==========
 const filaCmd     = require("./commands/fila");
