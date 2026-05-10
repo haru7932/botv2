@@ -15,30 +15,30 @@ function buildFilaEmbed(guild, modo, valor) {
 
   const embed = new EmbedBuilder()
     .setColor(cor)
-    .setTitle("🎮 " + MODO_DISPLAY[modo] + " | R$ " + valor + ",00")
+    .setTitle("<:ump:1503020385237729431> " + MODO_DISPLAY[modo] + " | R$ " + valor + ",00")
     .setThumbnail(thumb)
     .addFields(
-      { name: " Gel Normal:", value: normalList },
-      { name: " Gel Inf:", value: infList }
+      { name: " Gelo Normal:", value: normalList },
+      { name: " Gelo Infinito:", value: infList }
     )
     .setFooter({ text: getNome(guild) });
 
   const row = new ActionRowBuilder().addComponents(
     new ButtonBuilder()
       .setCustomId("normal_" + modo + "_" + valor)
-      .setLabel("Gel Normal")
+      .setLabel("Gelo Normal")
       .setStyle(ButtonStyle.Secondary)
       .setEmoji({ name: "gel", id: "1502648300501864518" }),
     new ButtonBuilder()
       .setCustomId("inf_" + modo + "_" + valor)
-      .setLabel("Gel Inf")
+      .setLabel("Gelo Infinito")
       .setStyle(ButtonStyle.Secondary)
       .setEmoji({ name: "gel", id: "1502648300501864518" }),
     new ButtonBuilder()
       .setCustomId("sair_" + modo + "_" + valor)
       .setLabel("Sair")
       .setStyle(ButtonStyle.Danger)
-      .setEmoji("🚪")
+      .setEmoji("<:back:1503019303891632188>")
   );
 
   return { embeds: [embed], components: [row] };
@@ -61,6 +61,7 @@ module.exports = {
           { name: "2x2 Emulador", value: "2x2emu"   },
           { name: "3x3 Emulador", value: "3x3emu"   },
           { name: "4x4 Emulador", value: "4x4emu"   },
+          { name: "1x1 Misto",    value: "1x1misto" }, 
           { name: "2x2 Misto",    value: "2x2misto" },
           { name: "3x3 Misto",    value: "3x3misto" },
           { name: "4x4 Misto",    value: "4x4misto" }
